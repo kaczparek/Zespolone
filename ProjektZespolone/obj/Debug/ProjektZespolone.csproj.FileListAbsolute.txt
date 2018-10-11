@@ -1,0 +1,10 @@
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\bin\Debug\ProjektZespolone.exe.config
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\bin\Debug\ProjektZespolone.exe
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\bin\Debug\ProjektZespolone.pdb
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.csprojAssemblyReference.cache
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.Form1.resources
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.Properties.Resources.resources
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.csproj.GenerateResource.cache
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.csproj.CoreCompileInputs.cache
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.exe
+c:\users\szymon\source\repos\ProjektZespolone\ProjektZespolone\obj\Debug\ProjektZespolone.pdb
