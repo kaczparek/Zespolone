@@ -32,7 +32,7 @@ namespace ProjektZespolone
 
             Zespolone wynik = zesp1.Odejmowanie(zesp2);
 
-            label5.Text = zesp1.Wynik() + " + " + zesp2.Wynik() + " " + wynik.Wynik(); // wyswietlanie wyniku mojego dzialania
+            label5.Text = zesp1.Wynik() + " - " + zesp2.Wynik() + " = " + wynik.Wynik(); // wyswietlanie wyniku mojego dzialania
 
         }
 
@@ -51,7 +51,27 @@ namespace ProjektZespolone
 
             Zespolone wynik = zesp1.Dodawanie(zesp2);
 
-            label5.Text = zesp1.Wynik() + " + " + zesp2.Wynik() + " " + wynik.Wynik();
+            label5.Text = zesp1.Wynik() + " + " + zesp2.Wynik() + " = " + wynik.Wynik();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
