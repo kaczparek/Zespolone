@@ -16,7 +16,7 @@ namespace ProjektZespolone
             this.real = real; // odwołanie klasy do samej siebie tak jakby Zespolona.real
             this.imaginary = imaginary;
         }
-        public float WezReal() // metoda 'getter'
+        public float WezReal() // metoda 
         {
             return real; // zwraca podaną wartość przy obieckie 
         }
@@ -33,7 +33,7 @@ namespace ProjektZespolone
         }
         public Zespolone Odejmowanie(Zespolone zespolona) // zespolona - nazwa obiektu , Zespolone - nazwa klasy
         {
-            float odejReal = real - zespolona.WezReal(); // zespolona- obiekt 
+            float odejReal = real - zespolona.WezReal();
             float odejImaginary = imaginary - zespolona.WezImaginary();
             Zespolone wynikZespolona = new Zespolone(odejReal, odejImaginary);
             return wynikZespolona;
@@ -41,8 +41,15 @@ namespace ProjektZespolone
         public Zespolone Mnozenie(Zespolone zespolona)
         {
             float mnozReal = real * zespolona.WezReal() -  imaginary * zespolona.WezImaginary();
-            float mnozImaginary = imaginary * zespolona.WezImaginary() + imaginary * zespolona.WezReal();
+            float mnozImaginary = real * zespolona.WezImaginary() + imaginary * zespolona.WezReal();
             Zespolone wynikZespolona = new Zespolone(mnozReal, mnozImaginary);
+            return wynikZespolona;
+        }
+         public Zespolone Dzielenie(Zespolone zespolona)
+        {
+            float dzielReal = real * zespolona.WezReal() - imaginary * zespolona.WezImaginary();
+            float dzielImaginary = real * zespolona.WezImaginary() + imaginary * zespolona.WezReal(); // to bede kminil
+            Zespolone wynikZespolona = new Zespolone(dzielReal, dzielImaginary);
             return wynikZespolona;
         }
         public string Wynik()
