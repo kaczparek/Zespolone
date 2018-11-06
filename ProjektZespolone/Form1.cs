@@ -20,7 +20,7 @@ namespace ProjektZespolone
         }
         private int potegaI(int potega) //nazwa metody, nazwa zmiennej przekazywanej do tej metody
         {
-            int modulo = potega % 4;
+            int modulo = potega % 4; // szuka znaku
             if (modulo == 1)
                 return 1;
             else if (modulo == 2)
@@ -41,7 +41,7 @@ namespace ProjektZespolone
                 return;
             }
             float real1 = float.Parse(textBox1.Text); // Parse zmienia typ string na float 
-            string[] ri = textBox2.Text.Split('i'); // tak jakby dzieli nam na 2 obszary, split dzieli mi na real i imaginary (po lewej od i/ po prawej od i)
+            string[] ri = textBox2.Text.Split('i'); // tak jakby dzieli nam na 2 obszary, split dzieli mi na liczbe przed i oraz na potege
 
             int liczba = int.Parse(ri[0]);// 0 to moja liczba urojona, 1 to potęga i
             int potega = 1; // defaultowo i 
@@ -244,11 +244,70 @@ namespace ProjektZespolone
             }
             else
                 zesp2 = new Zespolone(real2, liczba2 * znakpotegi2);
+            if(zesp2.WezReal() == 0 && zesp2.WezImaginary() == 0 )
+            {
+                MessageBox.Show("Cholero nie dziel przez 0!");
+                return;
+            }
 
-            Zespolone wynik = zesp1.Mnozenie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem mnożenia tych dwóch poprzednich
-            label5.Text = zesp1.Wynik() + " * " + zesp2.Wynik() + " = " + wynik.Wynik();
-            File.AppendAllText("Wynik.txt", "Wynik mnożenia: " + wynik.Wynik() + " ");
+            Zespolone wynik = zesp1.Dzielenie(zesp2); 
+            label5.Text = zesp1.Wynik() + " / " + zesp2.Wynik() + " = " + wynik.Wynik();
+            File.AppendAllText("Wynik.txt", "Wynik dzielenia: " + wynik.Wynik() + " ");
         }
-        
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader sr = new StreamReader("liczby.txt");
+                String[] dzialania = sr.ReadToEnd().Split(' ');
+                String[] zesp1 = dzialania[0].Split(';');
+                String[] zesp2 = dzialania[1].Split(';');
+                textBox1.Text = zesp1[0];
+                textBox2.Text = zesp1[1];
+                textBox3.Text = zesp2[0];
+                textBox4.Text = zesp2[1];
+            }
+            catch
+            {
+                MessageBox.Show("Plik nie istnieje!");
+                    return;
+            }
+            }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            float real = float.Parse(textBox5.Text);
+            String[] imagpow = textBox6.Text.Split('i');
+            float imag = 1;
+            if (imagpow[0].Length != 0)
+                imag = float.Parse(imagpow[0]);
+            int potega = 1;
+            if (imagpow[1].Length != 0)
+                potega = int.Parse(imagpow[1]);
+            float znakPotegi = potegaI(potega);
+            Zespolone zesp;
+            if (potega % 2 == 0)
+            {
+                real += imag * znakPotegi;
+                zesp = new Zespolone(real, 0);
+            }
+            else
+            {
+                zesp = new Zespolone(real, imag * znakPotegi);
+            }
+            label6.Text = zesp.Trygonometryczna();
+        }
     }
-}
+    }
+

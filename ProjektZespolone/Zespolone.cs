@@ -45,16 +45,31 @@ namespace ProjektZespolone
             Zespolone wynikZespolona = new Zespolone(mnozReal, mnozImaginary);
             return wynikZespolona;
         }
-         public Zespolone Dzielenie(Zespolone zespolona)
+        public Zespolone Dzielenie(Zespolone zespolona)
         {
-            float dzielReal = real * zespolona.WezReal() - imaginary * zespolona.WezImaginary();
-            float dzielImaginary = real * zespolona.WezImaginary() + imaginary * zespolona.WezReal(); // to bede kminil
+            Zespolone sprzezenie = new Zespolone(zespolona.WezReal(), zespolona.WezImaginary() * (-1));
+            Zespolone wynikLicznik = Mnozenie(sprzezenie);
+            Zespolone wynikMianownik = zespolona.Mnozenie(sprzezenie); 
+            float dzielReal = wynikLicznik.WezReal() / wynikMianownik.WezReal();
+            float dzielImaginary = wynikLicznik.WezImaginary() / wynikMianownik.WezReal();
             Zespolone wynikZespolona = new Zespolone(dzielReal, dzielImaginary);
             return wynikZespolona;
         }
+        private double RadianToDegree(double angle)
+        {
+            return angle * (180.0 / Math.PI);
+        }
+        public String Trygonometryczna()
+        {
+            double modul = Math.Sqrt(Math.Pow(real, 2) + Math.Pow(imaginary, 2));
+            double argz =2 * Math.Atan(imaginary / (real + modul));
+            double deg = RadianToDegree(argz);
+            return Math.Round(modul).ToString() + "(cos" + deg + "+ isin" + deg + ")";
+            
+        }
         public string Wynik()
         {
-            return "(" + real + ", " + imaginary + "i)";
+            return "(" + real + "; " + imaginary + "i)";
         }
     }
 }
