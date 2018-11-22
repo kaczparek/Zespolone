@@ -48,15 +48,15 @@ namespace ProjektZespolone
             if (ri[1].Length >= 1) //  pokazuje czy jest jakas potega 
                 potega = int.Parse(ri[1]); 
             int znakpotegi = potegaI(potega); // zwraca czy to jest 1 czy -1
-            Zespolone zesp1; // bez tego obiekt w ifie nie jest widoczny, nie działało mi coś
+            Substract zesp1; // bez tego obiekt w ifie nie jest widoczny, nie działało mi coś
             if (potega % 2 == 0)
             {
                 real1 += int.Parse(ri[0]) * znakpotegi; // znak potęgi musi być intem, bo inaczej lipka
-                zesp1 = new Zespolone(real1, 0); // 0, bo wartosc urojona sie uprościła do rzeczywistej,  
+                zesp1 = new Substract(real1, 0); // 0, bo wartosc urojona sie uprościła do rzeczywistej,  
             }
             else
             {
-                zesp1 = new Zespolone(real1, liczba * znakpotegi);
+                zesp1 = new Substract(real1, liczba * znakpotegi);
             }
             float real2 = float.Parse(textBox3.Text);
             string[] ri2 = textBox4.Text.Split('i');
@@ -66,16 +66,16 @@ namespace ProjektZespolone
             if (ri2[1].Length >= 1)
                 potega2 = int.Parse(ri2[1]);
             int znakpotegi2 = potegaI(potega2);
-            Zespolone zesp2;
+            Substract zesp2;
             if (potega2 % 2 == 0) // jeśli potega przy i jest parzysta, tzn. ze nie ma czesci urojonej, bo zostala zredukowana
             {
                 real2 += int.Parse(ri2[0]) * znakpotegi2;
-                zesp2 = new Zespolone(real2, 0);
+                zesp2 = new Substract(real2, 0);
             }
             else 
-                zesp2 = new Zespolone(real2, liczba2 * znakpotegi2);
+                zesp2 = new Substract(real2, liczba2 * znakpotegi2);
 
-            Zespolone wynik = zesp1.Odejmowanie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem odejmowania tych dwóch poprzednich
+            Substract wynik = zesp1.Odejmowanie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem odejmowania tych dwóch poprzednich
             label5.Text = zesp1.Wynik() + " - " + zesp2.Wynik() + " = " + wynik.Wynik();
             File.AppendAllText("Wynik.txt", "Wynik odejmowania: " + wynik.Wynik() + " ");
         }
@@ -98,15 +98,15 @@ namespace ProjektZespolone
             if (ri[1].Length >= 1) 
                 potega = int.Parse(ri[1]); 
             int znakpotegi = potegaI(potega); 
-            Zespolone zesp1; 
+            Add zesp1; 
             if (potega % 2 == 0)
             {
                 real1 += int.Parse(ri[0]) * znakpotegi;
-                zesp1 = new Zespolone(real1, 0);   
+                zesp1 = new Add(real1, 0);   
             }
             else
             {
-                zesp1 = new Zespolone(real1, liczba * znakpotegi);
+                zesp1 = new Add(real1, liczba * znakpotegi);
             }
             float real2 = float.Parse(textBox3.Text);
             string[] ri2 = textBox4.Text.Split('i');
@@ -116,16 +116,16 @@ namespace ProjektZespolone
             if (ri2[1].Length >= 1)
                 potega2 = int.Parse(ri2[1]);
             int znakpotegi2 = potegaI(potega2);
-            Zespolone zesp2;
+            Add zesp2;
             if (potega2 % 2 == 0)
             {
                 real2 += int.Parse(ri2[0]) * znakpotegi2;
-                zesp2 = new Zespolone(real2, 0);
+                zesp2 = new Add(real2, 0);
             }
             else
-                zesp2 = new Zespolone(real2, liczba2 * znakpotegi2);
+                zesp2 = new Add(real2, liczba2 * znakpotegi2);
 
-            Zespolone wynik = zesp1.Dodawanie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem dodawania tych dwóch poprzednich
+            Add wynik = zesp1.Dodawanie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem dodawania tych dwóch poprzednich
             label5.Text = zesp1.Wynik() + " + " + zesp2.Wynik() + " = " + wynik.Wynik();
             File.AppendAllText("Wynik.txt", "Wynik dodawania: " + wynik.Wynik()+ " ");
 
@@ -151,8 +151,9 @@ namespace ProjektZespolone
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
+
             string imagText1 = textBox2.Text; 
             string imagText2 = textBox4.Text;
             if (!imagText1.Contains('i') || !imagText2.Contains('i')) 
@@ -167,16 +168,16 @@ namespace ProjektZespolone
             int potega = 1; 
             if (ri[1].Length >= 1) 
                 potega = int.Parse(ri[1]); 
-            int znakpotegi = potegaI(potega); 
-            Zespolone zesp1; 
+            int znakpotegi = potegaI(potega);
+            Multiply zesp1; 
             if (potega % 2 == 0)
             {
                 real1 += int.Parse(ri[0]) * znakpotegi;
-                zesp1 = new Zespolone(real1, 0); 
+                zesp1 = new Multiply(real1, 0); 
             }
             else
             {
-                zesp1 = new Zespolone(real1, liczba * znakpotegi);
+                zesp1 = new Multiply(real1, liczba * znakpotegi);
             }
             float real2 = float.Parse(textBox3.Text);
             string[] ri2 = textBox4.Text.Split('i');
@@ -186,16 +187,16 @@ namespace ProjektZespolone
             if (ri2[1].Length >= 1)
                 potega2 = int.Parse(ri2[1]);
             int znakpotegi2 = potegaI(potega2);
-            Zespolone zesp2;
+            Multiply zesp2;
             if (potega2 % 2 == 0)
             {
                 real2 += int.Parse(ri2[0]) * znakpotegi2;
-                zesp2 = new Zespolone(real2, 0);
+                zesp2 = new Multiply(real2, 0);
             }
             else
-                zesp2 = new Zespolone(real2, liczba2 * znakpotegi2);
+                zesp2 = new Multiply(real2, liczba2 * znakpotegi2);
 
-            Zespolone wynik = zesp1.Mnozenie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem mnożenia tych dwóch poprzednich
+            Multiply wynik = zesp1.Mnozenie(zesp2); // zwracamy nowy obiekt, ktory jest wynikiem mnożenia tych dwóch poprzednich
             label5.Text = zesp1.Wynik() + " * " + zesp2.Wynik() + " = " + wynik.Wynik();
             File.AppendAllText("Wynik.txt", "Wynik mnożenia: " + wynik.Wynik() + " ");
         }
@@ -218,15 +219,15 @@ namespace ProjektZespolone
             if (ri[1].Length >= 1) 
                 potega = int.Parse(ri[1]); 
             int znakpotegi = potegaI(potega); 
-            Zespolone zesp1; 
+            Divide zesp1; 
             if (potega % 2 == 0)
             {
                 real1 += int.Parse(ri[0]) * znakpotegi;
-                zesp1 = new Zespolone(real1, 0); 
+                zesp1 = new Divide(real1, 0); 
             }
             else
             {
-                zesp1 = new Zespolone(real1, liczba * znakpotegi);
+                zesp1 = new Divide(real1, liczba * znakpotegi);
             }
             float real2 = float.Parse(textBox3.Text);
             string[] ri2 = textBox4.Text.Split('i');
@@ -236,21 +237,21 @@ namespace ProjektZespolone
             if (ri2[1].Length >= 1)
                 potega2 = int.Parse(ri2[1]);
             int znakpotegi2 = potegaI(potega2);
-            Zespolone zesp2;
+            Divide zesp2;
             if (potega2 % 2 == 0)
             {
                 real2 += int.Parse(ri2[0]) * znakpotegi2;
-                zesp2 = new Zespolone(real2, 0);
+                zesp2 = new Divide(real2, 0);
             }
             else
-                zesp2 = new Zespolone(real2, liczba2 * znakpotegi2);
+                zesp2 = new Divide(real2, liczba2 * znakpotegi2);
             if(zesp2.WezReal() == 0 && zesp2.WezImaginary() == 0 )
             {
                 MessageBox.Show("Cholero nie dziel przez 0!");
                 return;
             }
 
-            Zespolone wynik = zesp1.Dzielenie(zesp2); 
+            Divide wynik = zesp1.Dzielenie(zesp2); 
             label5.Text = zesp1.Wynik() + " / " + zesp2.Wynik() + " = " + wynik.Wynik();
             File.AppendAllText("Wynik.txt", "Wynik dzielenia: " + wynik.Wynik() + " ");
         }
@@ -296,18 +297,20 @@ namespace ProjektZespolone
             if (imagpow[1].Length != 0)
                 potega = int.Parse(imagpow[1]);
             float znakPotegi = potegaI(potega);
-            Zespolone zesp;
+            Trigonometric zesp;
             if (potega % 2 == 0)
             {
                 real += imag * znakPotegi;
-                zesp = new Zespolone(real, 0);
+                zesp = new Trigonometric(real, 0);
             }
             else
             {
-                zesp = new Zespolone(real, imag * znakPotegi);
+                zesp = new Trigonometric(real, imag * znakPotegi);
             }
             label6.Text = zesp.Trygonometryczna();
         }
+
+       
     }
     }
 
